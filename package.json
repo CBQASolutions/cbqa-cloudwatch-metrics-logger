@@ -1,0 +1,28 @@
+{
+  "name": "cbqa-cloudwatch-metrics-logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "prepare": "tsc --outDir ./dist/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-cloudwatch": "^3.606.0",
+    "@aws-sdk/client-cloudwatch-logs": "^3.606.0"
+  },
+  "devDependencies": {
+    "@types/lambda-log": "^3.0.2",
+    "@types/node": "^20.14.9",
+    "typescript": "^5.5.3"
+  },
+  "files": [
+    "dist"
+  ]
+}
