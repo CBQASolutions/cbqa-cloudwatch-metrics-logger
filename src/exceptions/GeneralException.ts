@@ -72,7 +72,7 @@ export class BackendCustomException extends Error {
  * Cloudwatch Exceptions (500.)
  */
 
-export class IncreaseFunctionMetricException extends BackendCustomException {
+export class FunctionInvocationMetricException extends BackendCustomException {
   public static errorCode = 500.1;
   public static clientMessage = 'Failed to send metric data';
 
@@ -81,8 +81,26 @@ export class IncreaseFunctionMetricException extends BackendCustomException {
   }
 }
 
-export class IncreaseErrorMetricException extends BackendCustomException {
+export class FunctionErrorMetricException extends BackendCustomException {
   public static errorCode = 500.2;
+  public static clientMessage = 'Failed to send metric erro data';
+
+  constructor(originalError: Error) {
+    super(originalError);
+  }
+}
+
+export class CustomMetricException extends BackendCustomException {
+  public static errorCode = 500.3;
+  public static clientMessage = 'Failed to send metric erro data';
+
+  constructor(originalError: Error) {
+    super(originalError);
+  }
+}
+
+export class CustomMetricAndDimensionsException extends BackendCustomException {
+  public static errorCode = 500.4;
   public static clientMessage = 'Failed to send metric erro data';
 
   constructor(originalError: Error) {
