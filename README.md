@@ -41,3 +41,11 @@ try {
   console.error('Failed to increase function metric count:', error);
 }
 ```
+
+## AWS IAM Permissions Required
+
+The following permissions are required
+
+```bash
+cloudwatch:PutMetricData
+```
