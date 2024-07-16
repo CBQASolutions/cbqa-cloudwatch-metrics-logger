@@ -171,12 +171,14 @@ export class CloudWatchLogger {
    *
    * @param {string} metricName - The name of the custom metric.
    * @param {Dimension[]} dimensions - An array of dimensions for the metric.
+   * @param {number} [value=1.0] - The value to increase the metric by. Defaults to 1.0 if not specified.
    * @returns {Promise<void>} - A promise that resolves when the metric is logged.
    * @throws {CustomMetricAndDimensionsException} - If an error occurs while logging the metric.
    */
   public async increaseCustomMetricAndDimensions(
     metricName: string,
-    dimensions: Dimension[]
+    dimensions: Dimension[],
+    value: number = 1.0
   ): Promise<void> {
     try {
       const command = new PutMetricDataCommand({
@@ -185,7 +187,7 @@ export class CloudWatchLogger {
             MetricName: metricName,
             Dimensions: dimensions,
             Unit: CloudWatchDimensionsUnit.COUNT,
-            Value: 1.0,
+            Value: value,
           },
         ],
         Namespace: `${this.namespace}`,
